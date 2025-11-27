@@ -13,12 +13,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: tests
-      id: tests
-      uses: classroom-resources/autograding-python-grader@v1
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
+        python-version: '3.11'
+    - name: Run tests
+      id: tests
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: "Prim MST Tests"
+        setup-command: "pip install pytest"
+        command: "python -m pytest tests/test_hw04.py -v"
         timeout: 10
-        setup-command: ''
+        max-score: 100
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:

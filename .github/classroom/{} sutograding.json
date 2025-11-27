@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Prim MST Tests",
+      "setup": "pip install pytest",
+      "run": "python -m pytest tests/test_hw04.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 100
+    }
+  ]
+}
